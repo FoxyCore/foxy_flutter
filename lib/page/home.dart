@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:foxy/page/game.dart';
+import 'package:foxy/widget/input.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -49,10 +50,11 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           Expanded(
-            child: Container(
-              width: double.infinity,
-              height: double.infinity,
-              color: Colors.white,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Input(),
+              ],
             ),
           )
         ],
