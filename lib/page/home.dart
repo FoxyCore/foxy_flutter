@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:foxy/page/game.dart';
 import 'package:foxy/widget/input.dart';
+import 'package:foxy/widget/spin.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -45,16 +46,15 @@ class _HomePageState extends State<HomePage> {
                   color: Colors.white,
                   height: 64,
                   width: 64,
-                  child: Icon(Icons.settings_outlined),
+                  child: const Icon(Icons.settings_outlined),
                 ),
               ],
             ),
-          Expanded(
+          const Expanded(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Input(),
-              ],
+              children: [Input(), AntSpin()],
             ),
           )
         ],
@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
   void handleDestinationSelected(BuildContext context, int index) {
     if (index == 2) {
       Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-        return GamePage();
+        return const GamePage();
       }));
     }
   }
