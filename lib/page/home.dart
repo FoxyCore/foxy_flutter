@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:foxy/page/game.dart';
 import 'package:foxy/widget/input.dart';
 import 'package:foxy/widget/spin.dart';
+import 'package:foxy/widget/switch.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -54,7 +55,14 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [Input(), AntSpin()],
+              children: [
+                Input(),
+                AntSpin(),
+                AntSwitch(
+                  loading: true,
+                  checked: true,
+                )
+              ],
             ),
           )
         ],
