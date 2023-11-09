@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:foxy/page/game.dart';
 import 'package:foxy/widget/input.dart';
+import 'package:foxy/widget/input_number.dart';
 import 'package:foxy/widget/spin.dart';
 import 'package:foxy/widget/switch.dart';
 
@@ -54,14 +55,12 @@ class _HomePageState extends State<HomePage> {
           const Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Input(),
+                AntInput(),
                 AntSpin(),
-                AntSwitch(
-                  loading: true,
-                  checked: true,
-                )
+                AntSwitch(loading: true, checked: true),
+                AntInputNumber(),
               ],
             ),
           )

@@ -1,17 +1,17 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class Input extends StatefulWidget {
-  const Input({super.key, this.placeholder, this.width});
+class AntInput extends StatefulWidget {
+  const AntInput({super.key, this.placeholder, this.width});
 
   final String? placeholder;
   final double? width;
 
   @override
-  State<Input> createState() => _InputState();
+  State<AntInput> createState() => _AntInputState();
 }
 
-class _InputState extends State<Input> {
+class _AntInputState extends State<AntInput> {
   FocusNode focusNode = FocusNode();
   Color border = Colors.black.withOpacity(0.15);
   Color shadow = Colors.transparent;
@@ -30,22 +30,6 @@ class _InputState extends State<Input> {
         ),
         padding: const EdgeInsets.fromLTRB(12, 8, 12, 10),
         width: widget.width ?? 360,
-        // child: EditableText(
-        //   controller: TextEditingController(),
-        //   focusNode: FocusNode(),
-        //   style: TextStyle(
-        //     fontSize: 14,
-        //     height: 1,
-        //     color: Colors.black.withOpacity(0.88),
-        //     leadingDistribution: TextLeadingDistribution.even,
-        //   ),
-        //   cursorColor: Colors.black.withOpacity(0.88),
-        //   backgroundCursorColor: Colors.transparent,
-        //   cursorWidth: 1,
-        //   cursorHeight: 18,
-        //   selectionColor: Colors.black.withOpacity(0.15),
-        //   selectionHeightStyle: BoxHeightStyle.strut,
-        // ),
         child: TextField(
           decoration: InputDecoration.collapsed(
             border: InputBorder.none,
