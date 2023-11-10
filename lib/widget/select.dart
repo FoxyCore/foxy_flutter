@@ -156,7 +156,6 @@ class _AntSelectState extends State<AntSelect> {
 
 class _AntSelectOverlay extends StatelessWidget {
   const _AntSelectOverlay({
-    super.key,
     required this.link,
     required this.options,
     this.selectedIndex,
@@ -229,7 +228,6 @@ class _AntSelectOverlay extends StatelessWidget {
 
 class _AntSelectOverlayTile extends StatefulWidget {
   const _AntSelectOverlayTile({
-    super.key,
     required this.label,
     this.selected = false,
     required this.onTap,

@@ -7,6 +7,7 @@ import 'package:foxy/widget/input_number.dart';
 import 'package:foxy/widget/select.dart';
 import 'package:foxy/widget/spin.dart';
 import 'package:foxy/widget/switch.dart';
+import 'package:foxy/widget/table.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -47,9 +48,12 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Container(
                   color: Colors.white,
-                  height: 64,
-                  width: 64,
-                  child: const Icon(Icons.settings_outlined),
+                  height: 72,
+                  width: 72,
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.settings_outlined),
+                  ),
                 ),
               ],
             ),
@@ -71,6 +75,35 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const AntSpin(),
                 const AntSwitch(loading: true, checked: true),
+                AntTable(
+                  columns: [
+                    ColumnOption(dataIndex: 'name', key: 'name', title: '姓名'),
+                    ColumnOption(dataIndex: 'age', key: 'age', title: '年龄'),
+                    ColumnOption(
+                      dataIndex: 'address',
+                      key: 'address',
+                      title: '住址',
+                    ),
+                    ColumnOption(
+                      dataIndex: 'name',
+                      key: 'name',
+                      title: '操作',
+                      builder: (source) {
+                        return UnconstrainedBox(
+                          alignment: Alignment.centerLeft,
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            child: const Text('修改'),
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                  dataSource: [
+                    DataSourceDemo('西湖区湖底公园1号', 32, '1', '胡彦斌'),
+                    DataSourceDemo('西湖区湖底公园1号', 42, '2', '胡彦祖'),
+                  ],
+                ),
               ],
             ),
           )
@@ -85,5 +118,22 @@ class _HomePageState extends State<HomePage> {
         return const GamePage();
       }));
     }
+  }
+}
+
+class DataSourceDemo extends DataSource {
+  DataSourceDemo(this.address, this.age, this.key, this.name);
+  final String address;
+  final int age;
+  final String key;
+  final String name;
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      'address': address,
+      'age': age,
+      'key': key,
+      'name': name,
+    };
   }
 }

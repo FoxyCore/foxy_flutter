@@ -129,7 +129,6 @@ class _AntInputNumberState extends State<AntInputNumber> {
 
 class _AntInputNumberOverlay extends StatefulWidget {
   const _AntInputNumberOverlay({
-    super.key,
     required this.opacity,
     required this.onChange,
   });
@@ -218,7 +217,6 @@ class __AntInputNumberOverlayState extends State<_AntInputNumberOverlay> {
 
 class _AntInputNumberOverlayTile extends StatelessWidget {
   const _AntInputNumberOverlayTile({
-    super.key,
     required this.height,
     required this.icon,
     this.onEnter,
@@ -263,7 +261,7 @@ class _AntInputNumberOverlayTile extends StatelessWidget {
 }
 
 class _AntInputNumberOverlayDivider extends StatelessWidget {
-  const _AntInputNumberOverlayDivider({super.key});
+  const _AntInputNumberOverlayDivider();
 
   @override
   Widget build(BuildContext context) {

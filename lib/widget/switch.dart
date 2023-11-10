@@ -108,7 +108,7 @@ class _AntSwitchState extends State<AntSwitch> {
 }
 
 class _SwitchLoadingTile extends StatefulWidget {
-  const _SwitchLoadingTile({super.key});
+  const _SwitchLoadingTile();
 
   @override
   State<_SwitchLoadingTile> createState() => __SwitchLoadingTileState();
