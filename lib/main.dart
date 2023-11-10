@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foxy/page/home.dart';
+import 'package:foxy/page/home/home.dart';
 
 void main() {
   runApp(const MainApp());

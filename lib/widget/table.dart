@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class AntTable extends StatelessWidget {
@@ -17,37 +18,8 @@ class AntTable extends StatelessWidget {
           ],
         ),
         for (var i = 0; i < dataSource.length; i++)
-          buildTableRow(dataSource[i]),
+          _AntTableRow(columns: columns, dataSource: dataSource[i])
       ],
-    );
-  }
-
-  Widget buildTableRow(DataSource dataSource) {
-    List<Widget> cells = [];
-
-    for (var i = 0; i < columns.length; i++) {
-      Widget cell;
-      if (columns[i].builder != null) {
-        cell = _AntTableCell(
-          child: columns[i].builder!.call(dataSource),
-        );
-      } else {
-        cell = _AntTableCell(
-          text: dataSource.toJson()[columns[i].dataIndex].toString(),
-        );
-      }
-      cells.add(Expanded(child: cell));
-    }
-    return Container(
-      decoration: BoxDecoration(
-        border: Border(
-            bottom: BorderSide(
-          color: Colors.black.withOpacity(0.06),
-          width: 0.5,
-        )),
-        color: Colors.white,
-      ),
-      child: Row(children: cells),
     );
   }
 }
@@ -87,6 +59,72 @@ class _AntTableHeaderTile extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class _AntTableRow extends StatefulWidget {
+  const _AntTableRow({required this.columns, required this.dataSource});
+
+  final List<ColumnOption> columns;
+  final DataSource dataSource;
+
+  @override
+  State<_AntTableRow> createState() => __AntTableRowState();
+}
+
+class __AntTableRowState extends State<_AntTableRow> {
+  Color color = Colors.white;
+
+  @override
+  Widget build(BuildContext context) {
+    List<Widget> cells = [];
+
+    for (var i = 0; i < widget.columns.length; i++) {
+      Widget cell;
+      if (widget.columns[i].builder != null) {
+        cell = _AntTableCell(
+          child: widget.columns[i].builder!.call(widget.dataSource),
+        );
+      } else {
+        cell = _AntTableCell(
+          text: widget.dataSource
+              .toJson()[widget.columns[i].dataIndex]
+              .toString(),
+        );
+      }
+      cells.add(Expanded(child: cell));
+    }
+    return GestureDetector(
+      child: MouseRegion(
+        onEnter: handleEnter,
+        onExit: handleExit,
+        cursor: SystemMouseCursors.click,
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(
+                color: Colors.black.withOpacity(0.06),
+                width: 0.5,
+              ),
+            ),
+            color: color,
+          ),
+          child: Row(children: cells),
+        ),
+      ),
+    );
+  }
+
+  void handleEnter(PointerEnterEvent event) {
+    setState(() {
+      color = Colors.black.withOpacity(0.02);
+    });
+  }
+
+  void handleExit(PointerExitEvent event) {
+    setState(() {
+      color = Colors.white;
+    });
   }
 }
 

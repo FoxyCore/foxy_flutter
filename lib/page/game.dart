@@ -20,17 +20,21 @@ class _GamePageState extends State<GamePage> {
             height: double.infinity,
             width: double.infinity,
           ),
-          const Positioned.fill(
+          Positioned.fill(
             child: Column(
               children: [
-                Expanded(child: SizedBox()),
+                const Expanded(child: SizedBox()),
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    CircleButton(child: Text('主城')),
-                    CircleButton(child: Text('任务')),
-                    CircleButton(child: Text('地下城')),
-                    CircleButton(child: Text('背包')),
+                    const CircleButton(child: Text('主城')),
+                    const CircleButton(child: Text('任务')),
+                    const CircleButton(child: Text('地下城')),
+                    const CircleButton(child: Text('背包')),
+                    CircleButton(
+                      onTap: () => Navigator.of(context).pop(),
+                      child: const Text('退出'),
+                    ),
                   ],
                 ),
               ],
