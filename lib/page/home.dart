@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:foxy/page/game.dart';
+import 'package:foxy/widget/button.dart';
 import 'package:foxy/widget/input.dart';
 import 'package:foxy/widget/input_number.dart';
 import 'package:foxy/widget/select.dart';
@@ -62,6 +63,23 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    AntButton(
+                      loading: true,
+                      type: ButtonType.primary,
+                      child: Text('Button'),
+                    ),
+                    SizedBox(width: 16),
+                    AntButton(
+                      type: ButtonType.primary,
+                      child: Text('Button'),
+                    ),
+                    SizedBox(width: 16),
+                    AntButton(child: Text('Button')),
+                  ],
+                ),
                 const AntInputNumber(),
                 const AntInput(),
                 AntSelect(

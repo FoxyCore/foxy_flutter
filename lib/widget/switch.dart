@@ -1,6 +1,5 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:foxy/widget/loading.dart';
 
 class AntSwitch extends StatefulWidget {
   const AntSwitch({
@@ -65,9 +64,7 @@ class _AntSwitchState extends State<AntSwitch> {
                 height: 18,
                 padding: const EdgeInsets.all(2),
                 width: pressed ? 24 : 18,
-                child: widget.loading
-                    ? const _SwitchLoadingTile()
-                    : const SizedBox(),
+                child: widget.loading ? const AntLoading() : const SizedBox(),
               ),
             ),
           ),
@@ -104,61 +101,5 @@ class _AntSwitchState extends State<AntSwitch> {
       pressed = false;
     });
     widget.onChange?.call(value);
-  }
-}
-
-class _SwitchLoadingTile extends StatefulWidget {
-  const _SwitchLoadingTile();
-
-  @override
-  State<_SwitchLoadingTile> createState() => __SwitchLoadingTileState();
-}
-
-class __SwitchLoadingTileState extends State<_SwitchLoadingTile>
-    with SingleTickerProviderStateMixin {
-  late AnimationController controller;
-  late Animation<double> turns;
-
-  @override
-  Widget build(BuildContext context) {
-    return RotationTransition(
-      turns: turns,
-      child: CustomPaint(
-        painter: _SwitchLoadingTilePainter(),
-        size: const Size.square(14),
-      ),
-    );
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    controller =
-        AnimationController(duration: const Duration(seconds: 1), vsync: this)
-          ..repeat();
-    turns = CurvedAnimation(parent: controller, curve: Curves.linear);
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
-}
-
-class _SwitchLoadingTilePainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1
-      ..color = const Color(0xFF1677FF);
-    Rect rect = Rect.fromLTWH(0, 0, size.width, size.height);
-    canvas.drawArc(rect, pi * 3 / 2, pi / 2, false, paint);
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return false;
   }
 }
