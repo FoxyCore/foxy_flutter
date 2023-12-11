@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:foxy/page/game.dart';
+import 'package:foxy/page/game/game.dart';
 import 'package:foxy/page/home/demo.dart';
 import 'package:foxy/page/home/launcher.dart';
 import 'package:foxy/page/home/setting.dart';
