@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:foxy/page/game/game.dart';
-import 'package:foxy/page/home/demo.dart';
-import 'package:foxy/page/home/launcher.dart';
-import 'package:foxy/page/home/setting.dart';
+import 'package:foxy/page/editor/demo.dart';
+import 'package:foxy/page/launcher/launcher.dart';
+import 'package:foxy/page/editor/setting.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
