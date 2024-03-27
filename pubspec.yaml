@@ -9,14 +9,18 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_riverpod: ^2.5.1
   laconic: ^0.0.1
   mysql_client: ^0.0.27
   mysql_utils: ^2.1.3
+  riverpod_annotation: ^2.3.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  riverpod_generator: ^2.4.0
+  build_runner: ^2.4.8
 
 flutter:
   uses-material-design: true

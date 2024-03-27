@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:foxy/page/home/home.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:foxy/page/game/login.dart';
+import 'package:foxy/service/service.dart';
 
 void main() {
-  runApp(const MainApp());
+  ServiceInitializer().ensureInitialized();
+  runApp(const ProviderScope(child: MainApp()));
 }
 
 class MainApp extends StatelessWidget {
@@ -10,8 +13,9 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomePage(),
+    return MaterialApp(
+      home: const GameLoginPage(),
+      theme: ThemeData(brightness: Brightness.dark),
     );
   }
 }
