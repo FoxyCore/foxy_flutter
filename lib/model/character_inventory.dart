@@ -4,6 +4,7 @@ class CharacterInventory {
   int quality = 0;
   int count = 0;
   String icon = '';
+  int slot = 0;
 
   CharacterInventory();
 
@@ -13,6 +14,7 @@ class CharacterInventory {
     quality = json['quality'];
     count = json['count'];
     icon = json['icon'];
+    slot = json['slot'];
   }
 
   Map<String, dynamic> toJson() {
@@ -21,7 +23,8 @@ class CharacterInventory {
       'name': name,
       'quality': quality,
       'count': count,
-      'icon': icon
+      'icon': icon,
+      'slot': slot
     };
   }
 }

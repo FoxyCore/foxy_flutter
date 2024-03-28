@@ -7,7 +7,7 @@ part of 'character_inventory.dart';
 // **************************************************************************
 
 String _$characterInventoriesNotifierHash() =>
-    r'35f39ef28bd1924ad428cae777682b31eba79fec';
+    r'1610d65f01903a4d226056e26c4df663655ac2f3';
 
 /// See also [CharacterInventoriesNotifier].
 @ProviderFor(CharacterInventoriesNotifier)
@@ -23,6 +23,25 @@ final characterInventoriesNotifierProvider = AutoDisposeAsyncNotifierProvider<
 );
 
 typedef _$CharacterInventoriesNotifier
+    = AutoDisposeAsyncNotifier<List<CharacterInventory>>;
+String _$equippedCharacterInventoriesNotifierHash() =>
+    r'7bf6799e5f3d5540f29595a7aa23d1a7945f5804';
+
+/// See also [EquippedCharacterInventoriesNotifier].
+@ProviderFor(EquippedCharacterInventoriesNotifier)
+final equippedCharacterInventoriesNotifierProvider =
+    AutoDisposeAsyncNotifierProvider<EquippedCharacterInventoriesNotifier,
+        List<CharacterInventory>>.internal(
+  EquippedCharacterInventoriesNotifier.new,
+  name: r'equippedCharacterInventoriesNotifierProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$equippedCharacterInventoriesNotifierHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$EquippedCharacterInventoriesNotifier
     = AutoDisposeAsyncNotifier<List<CharacterInventory>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

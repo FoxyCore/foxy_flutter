@@ -14,3 +14,17 @@ class CharacterInventoriesNotifier extends _$CharacterInventoriesNotifier {
     return await service.getCharacterInventories(character.guid);
   }
 }
+
+@riverpod
+class EquippedCharacterInventoriesNotifier
+    extends _$EquippedCharacterInventoriesNotifier {
+  @override
+  Future<List<CharacterInventory>> build() async {
+    final character = await ref.watch(characterNotifierProvider.future);
+    final service = CharacterInventoryService();
+    return await service.getCharacterInventories(
+      character.guid,
+      equipped: true,
+    );
+  }
+}

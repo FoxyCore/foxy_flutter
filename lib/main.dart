@@ -4,6 +4,7 @@ import 'package:foxy/page/game/login.dart';
 import 'package:foxy/service/service.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   ServiceInitializer().ensureInitialized();
   runApp(const ProviderScope(child: MainApp()));
 }
